@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristopher Gates — Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --accent: #7c5cfc;
+            --accent-secondary: #00d4aa;
+            --text: #e8e8ed;
+            --text-muted: #8888a0;
+            --border: #1e1e2e;
+            --gradient-1: linear-gradient(135deg, #7c5cfc, #00d4aa);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .resume {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem 2.5rem;
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .resume-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.4rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .resume-header .title {
+            font-size: 1.05rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .resume-header .contact-line {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .resume-header .contact-line a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .resume-header .contact-line a:hover {
+            color: var(--accent);
+        }
+
+        .resume-header .contact-line .sep {
+            margin: 0 0.5rem;
+            color: var(--border);
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Skills */
+        .skills-row {
+            margin-bottom: 1rem;
+        }
+
+        .skills-row .label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .skills-row .values {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .skills-row .values .highlight {
+            color: var(--accent-secondary);
+            font-weight: 500;
+        }
+
+        /* Experience entries */
+        .entry {
+            margin-bottom: 2rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .entry-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .entry-header .date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .entry .company {
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .entry ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .entry ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Education */
+        .edu-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .edu-entry .degree {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .edu-entry .school {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .edu-entry .honors {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Back link */
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .back-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .back-link a:hover { text-decoration: underline; }
+
+        /* Print styles */
+        @media print {
+            body { background: white; color: #111; }
+            .resume { padding: 0; }
+            .resume-header h1 { background: none; -webkit-text-fill-color: #111; color: #111; }
+            .resume-header .title { color: #333; }
+            .resume-header .contact-line, .resume-header .contact-line a { color: #555; }
+            .section-title { color: #333; border-bottom-color: #ddd; }
+            .summary { background: #f8f8f8; border-color: #ddd; border-left-color: #333; color: #444; }
+            .entry-header .date { color: #555; }
+            .entry .company { color: #333; }
+            .entry ul li { color: #444; }
+            .entry ul li::before { color: #333; }
+            .skills-row .values { color: #444; }
+            .skills-row .values .highlight { color: #111; font-weight: 600; }
+            .edu-entry .honors { color: #333; }
+            .back-link { display: none; }
+            :root { --border: #ddd; }
+        }
+
+        @media (max-width: 600px) {
+            .resume { padding: 2rem 1.5rem; }
+            .entry-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <header class="resume-header">
+            <h1>Kristopher Gates</h1>
+            <div class="title">AI Engineer &amp; Full-Stack Developer | Systems Automation Specialist</div>
+            <div class="contact-line">
+                <a href="mailto:kdlgates@kdlgates.com">kdlgates@kdlgates.com</a>
+                <span class="sep">·</span>
+                <a href="tel:+18134212341">(813) 421-2341</a>
+                <span class="sep">·</span>
+                <a href="https://www.kdlgates.com">kdlgates.com</a>
+                <span class="sep">·</span>
+                <a href="https://github.com/KDLGates">github.com/KDLGates</a>
+            </div>
+        </header>
+
+        <div class="summary">
+            10x AI engineer and versatile full-stack developer designing agentic workflows with Claude Code, OpenClaw, and Anthropic tools. Experienced in implementation, architecture, and systems automation across the full stack. Passionate about multiplying engineering output through AI-augmented development and best practices.
+        </div>
+
+        <div class="section">
+            <div class="section-title">Skills</div>
+
+            <div class="skills-row">
+                <div class="label">AI &amp; Agentic Systems</div>
+                <div class="values">
+                    <span class="highlight">Claude Code</span>,
+                    <span class="highlight">OpenClaw</span>,
+                    <span class="highlight">Anthropic API &amp; MCP</span>,
+                    <span class="highlight">Agentic Workflow Design</span>,
+                    LLM Fine-Tuning, Prompt Engineering, PyTorch, OpenAI, DeepSeek
+                </div>
+            </div>
+
+            <div class="skills-row">
+                <div class="label">Languages</div>
+                <div class="values">Python, TypeScript, JavaScript, C#, Java, C, C++, SQL, Bash, HTML/CSS</div>
+            </div>
+
+            <div class="skills-row">
+                <div class="label">Frameworks &amp; Platforms</div>
+                <div class="values">.NET / Blazor, React, Vue, Angular, Node / Express, Flask, Flutter, MERN Stack, Microsoft Power Platform</div>
+            </div>
+
+            <div class="skills-row">
+                <div class="label">Infrastructure &amp; DevOps</div>
+                <div class="values">AWS, Microsoft Azure, GCP, Docker, Kubernetes, CI/CD, GitHub Actions, GitLab, Jenkins, Puppet, ServiceNow</div>
+            </div>
+
+            <div class="skills-row">
+                <div class="label">Operating Systems</div>
+                <div class="values">Windows (Active Directory / domain networking), Arch Linux, Android, cloud &amp; distributed</div>
+            </div>
+
+            <div class="skills-row">
+                <div class="label">Certifications</div>
+                <div class="values">AWS Certified DevOps Engineer (in progress), Linux Certified System Administrator (in progress)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Experience</div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>AI Engineer &amp; Agentic Workflow Designer</h3>
+                    <div class="date">May 2025 — Present</div>
+                </div>
+                <div class="company">Independent</div>
+                <ul>
+                    <li>Designing and building autonomous AI agent architectures using Claude Code, OpenClaw, and Anthropic's tool ecosystem</li>
+                    <li>Developing MCP server integrations and multi-agent orchestration systems for complex, multi-step task execution</li>
+                    <li>Building AI-augmented development pipelines that multiply engineering output by 10x through intelligent automation</li>
+                    <li>Creating browser automation, code generation, and system administration workflows powered by agentic AI</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>.NET Full-Stack Developer</h3>
+                    <div class="date">April 2025</div>
+                </div>
+                <div class="company">Sightview Software</div>
+                <ul>
+                    <li>Extended and refactored MedTech products providing Electronic Health Record (EHR) and Practice Management solutions for vision care clinics</li>
+                    <li>Worked with .NET Platform, C#, Azure, Cosmos DB, and multiple stacks and toolchains</li>
+                    <li>Optimized design, solution, and delivery supporting vision health for opticians, optometrists, and ophthalmologists</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Software Engineer</h3>
+                    <div class="date">December 2017 — April 2025</div>
+                </div>
+                <div class="company">Cheaper Geek</div>
+                <ul>
+                    <li>Designed and implemented web apps, CMS platforms, and ecommerce solutions for small and medium businesses</li>
+                    <li>Developed enterprise portals, dashboards, and electronic health record systems with focus on UI/UX and workflow efficiency</li>
+                    <li>Led core rewrites of legacy projects that client businesses relied on, modernizing critical infrastructure</li>
+                    <li>Provided technology integration services as an independent contractor</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Software Engineer</h3>
+                    <div class="date">June 2023 — July 2023</div>
+                </div>
+                <div class="company">Maya AI (Aza Project)</div>
+                <ul>
+                    <li>Managed version control with Git, including branching strategies and code review processes</li>
+                    <li>Containerized applications using Docker, hosted on AWS with ECS and EC2</li>
+                    <li>Designed front-end UI in React + Redux with Express server, routing, and original API endpoints</li>
+                    <li>Worked with React modules for camera integration and backend interfaces, matching Figma mockups as a full-stack Node developer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Project Highlights</div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>Agentic AI Workflows with OpenClaw</h3>
+                    <div class="date">2025 — Present</div>
+                </div>
+                <ul>
+                    <li>Building autonomous agent systems integrating Claude Code with real-world tools: browser automation, code generation, system administration, and multi-agent orchestration</li>
+                    <li>Designing workflows where AI agents reason, act, and adapt across complex multi-step tasks with human oversight</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>LLaMA 3.2 Fine-Tune Model Training</h3>
+                    <div class="date">November 2024</div>
+                </div>
+                <ul>
+                    <li>Contracted as one of two developers in an end-to-end fine-tune of the LLaMA 3.2 foundation LLM to solve classic text adventure games</li>
+                    <li>Normalized and datasetted legacy gameplay transcripts, producing an AI system capable of gameplay and puzzle solving in text adventure and generalized environments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+
+            <div class="edu-entry">
+                <div>
+                    <div class="degree">Bachelor of Science in Computer Science</div>
+                    <div class="school">University of South Florida — Tampa, FL</div>
+                </div>
+                <div class="honors">Summa Cum Laude (GPA 3.97)</div>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="/">← Back to kdlgates.com</a>
+        </div>
+    </div>
+</body>
+</html>
