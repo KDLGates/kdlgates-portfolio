@@ -225,6 +225,29 @@
 
         .back-link a:hover { text-decoration: underline; }
 
+        .pdf-btn {
+            display: inline-block;
+            padding: 0.5rem 1.4rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(124, 92, 252, 0.25);
+        }
+
+        .pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 92, 252, 0.4);
+        }
+
+        @media print {
+            .pdf-btn { display: none; }
+        }
+
         /* Print styles */
         @media print {
             body { background: white; color: #111; }
@@ -264,6 +287,9 @@
                 <a href="https://www.kdlgates.com">kdlgates.com</a>
                 <span class="sep">·</span>
                 <a href="https://github.com/KDLGates">github.com/KDLGates</a>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="/Kristopher_Gates_Resume.pdf" download class="pdf-btn">⬇ Download PDF</a>
             </div>
         </header>
 
