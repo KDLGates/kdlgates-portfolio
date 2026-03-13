@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristopher Gates — AI Engineer & Full-Stack Developer</title>
+    <meta name="description" content="Kristopher Gates: 10x AI Engineer, Full-Stack Developer, and Systems Automation Specialist building agentic workflows with Claude Code, OpenClaw, and Anthropic tools.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --accent: #7c5cfc;
+            --accent-glow: rgba(124, 92, 252, 0.3);
+            --accent-secondary: #00d4aa;
+            --text: #e8e8ed;
+            --text-muted: #8888a0;
+            --text-dim: #555568;
+            --border: #1e1e2e;
+            --gradient-1: linear-gradient(135deg, #7c5cfc, #00d4aa);
+            --gradient-2: linear-gradient(135deg, #7c5cfc 0%, #c471ed 50%, #00d4aa 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background effects */
+        .bg-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(124, 92, 252, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 212, 170, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        nav .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav .links { display: flex; gap: 2rem; }
+
+        nav .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav .links a:hover { color: var(--text); }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+        }
+
+        .hero .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero h1 .gradient {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero .cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.8s;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(124, 92, 252, 0.05);
+        }
+
+        /* Section headings */
+        .section-head {
+            padding-top: 8rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-head .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* Cards grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(124, 92, 252, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(124, 92, 252, 0.08);
+            border: 1px solid rgba(124, 92, 252, 0.15);
+            color: var(--text);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(124, 92, 252, 0.15);
+            border-color: var(--accent);
+        }
+
+        .skill-tag.highlight {
+            background: rgba(0, 212, 170, 0.1);
+            border-color: rgba(0, 212, 170, 0.3);
+            color: var(--accent-secondary);
+        }
+
+        /* Timeline */
+        .timeline { position: relative; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .timeline-item.current::before {
+            background: var(--accent-secondary);
+            box-shadow: 0 0 12px rgba(0, 212, 170, 0.4);
+            animation: pulse 2s ease infinite;
+        }
+
+        .timeline-item .date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item .company {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Featured section */
+        .featured {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        .featured h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .featured p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 700px;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .contact-item .contact-icon {
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(124, 92, 252, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-item .contact-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item .contact-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 12px rgba(0, 212, 170, 0.4); }
+            50% { box-shadow: 0 0 24px rgba(0, 212, 170, 0.6); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .links { display: none; }
+            .cards { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .featured { padding: 2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="inner">
+            <div class="logo">KG</div>
+            <div class="links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="label">AI Engineer &bull; Full-Stack Developer &bull; Systems Architect</div>
+        <h1>
+            I'm <span class="gradient">Kristopher Gates</span>.<br>
+            I build intelligent systems.
+        </h1>
+        <p class="subtitle">
+            10x AI engineer designing agentic workflows with Claude Code, OpenClaw, and Anthropic tools.
+            Full-stack developer and systems automation specialist turning complex problems into elegant solutions.
+        </p>
+        <div class="cta-row">
+            <a href="#contact" class="btn btn-primary">
+                <span>Get in Touch</span>
+                <span>→</span>
+            </a>
+            <a href="https://github.com/KDLGates" class="btn btn-outline" target="_blank">
+                <span>GitHub</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-head">
+            <div class="tag">Skills &amp; Expertise</div>
+            <h2>What I Work With</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>AI &amp; Machine Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">Claude Code</span>
+                    <span class="skill-tag highlight">OpenClaw</span>
+                    <span class="skill-tag highlight">Agentic Workflows</span>
+                    <span class="skill-tag highlight">Anthropic API</span>
+                    <span class="skill-tag">LLM Fine-Tuning</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">MCP Servers</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C / C++</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Bash</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Frameworks &amp; Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue</span>
+                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">.NET / Blazor</span>
+                    <span class="skill-tag">Node / Express</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Flutter</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Infrastructure &amp; DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">Jenkins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-head">
+            <div class="tag">Career</div>
+            <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item current">
+                <div class="date">2025 — Present</div>
+                <h3>AI Engineer &amp; Agentic Workflow Designer</h3>
+                <div class="company">Independent</div>
+                <p>
+                    Designing and building agentic AI workflows using Claude Code, OpenClaw, and Anthropic tools.
+                    Developing autonomous agent architectures, MCP integrations, and AI-augmented development pipelines
+                    that multiply engineering output by 10x. Pushing the frontier of human-AI collaboration.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">April 2025</div>
+                <h3>.NET Full-Stack Developer</h3>
+                <div class="company">Sightview Software</div>
+                <p>
+                    Extended and refactored MedTech products providing Electronic Health Record (EHR) and Practice Management
+                    solutions for vision care clinics. Worked with .NET, C#, Azure, and Cosmos DB across multiple stacks.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2017 — 2025</div>
+                <h3>Software Engineer</h3>
+                <div class="company">Cheaper Geek</div>
+                <p>
+                    Designed and implemented web apps, CMS platforms, and ecommerce solutions for SMBs.
+                    Built enterprise portals, dashboards, and EHR systems. Led core rewrites of legacy projects,
+                    modernizing critical business infrastructure.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2023</div>
+                <h3>Software Engineer</h3>
+                <div class="company">Maya AI (Aza Project)</div>
+                <p>
+                    Full-stack Node developer on an AI project. Managed Git branching strategies, containerized applications
+                    with Docker on AWS (ECS/EC2), built React + Redux frontend with Express backend and custom API endpoints.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-head">
+            <div class="tag">Projects</div>
+            <h2>What I've Built</h2>
+        </div>
+
+        <div class="featured">
+            <h3>🤖 Agentic AI Workflows with OpenClaw</h3>
+            <p>
+                Building autonomous agent systems that integrate Claude Code with real-world tools — browser automation,
+                code generation, system administration, and multi-agent orchestration. Designing workflows where AI agents
+                can reason, act, and learn across complex multi-step tasks.
+            </p>
+            <div class="tech-stack">
+                <span class="skill-tag highlight">Claude Code</span>
+                <span class="skill-tag highlight">OpenClaw</span>
+                <span class="skill-tag highlight">Anthropic API</span>
+                <span class="skill-tag">MCP</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Python</span>
+            </div>
+        </div>
+
+        <div class="cards" style="margin-top: 1.5rem;">
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>LLaMA 3.2 Fine-Tune Training</h3>
+                <div class="meta">Nov 2024</div>
+                <p>
+                    End-to-end fine-tune of LLaMA 3.2 to solve classic text adventure games.
+                    Normalized and datasetted legacy gameplay transcripts, producing an AI capable
+                    of gameplay and puzzle solving in text adventure environments.
+                </p>
+            </div>
+            <div class="card">
+                <div class="icon">🏥</div>
+                <h3>MedTech EHR Systems</h3>
+                <div class="meta">Sightview Software</div>
+                <p>
+                    Electronic Health Record and Practice Management solutions for vision care clinics.
+                    Built on .NET, Azure, and Cosmos DB for opticians, optometrists, and ophthalmologists.
+                </p>
+            </div>
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>Legacy System Modernization</h3>
+                <div class="meta">Cheaper Geek</div>
+                <p>
+                    Led core rewrites of legacy projects that businesses depended on,
+                    bringing them into modern efficiency with updated stacks and architecture.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-head">
+            <div class="tag">Education</div>
+            <h2>Academic Background</h2>
+        </div>
+        <div class="card" style="max-width: 600px;">
+            <h3>B.S. in Computer Science</h3>
+            <div class="meta">University of South Florida — Tampa, FL</div>
+            <p><strong style="color: var(--accent-secondary);">Summa Cum Laude</strong> — GPA 3.97</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-head">
+            <div class="tag">Contact</div>
+            <h2>Let's Connect</h2>
+        </div>
+        <div class="contact-grid">
+            <a href="mailto:kdlgates@kdlgates.com" class="contact-item">
+                <div class="contact-icon">✉</div>
+                <div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">kdlgates@kdlgates.com</div>
+                </div>
+            </a>
+            <a href="tel:+18134212341" class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">(813) 421-2341</div>
+                </div>
+            </a>
+            <a href="https://github.com/KDLGates" target="_blank" class="contact-item">
+                <div class="contact-icon">⚡</div>
+                <div>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">github.com/KDLGates</div>
+                </div>
+            </a>
+            <a href="https://www.kdlgates.com" target="_blank" class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <div>
+                    <div class="contact-label">Website</div>
+                    <div class="contact-value">kdlgates.com</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Kristopher Gates. Built with purpose.</p>
+    </footer>
+</body>
+</html>
