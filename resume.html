@@ -24,206 +24,15 @@
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
-        .resume {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 3rem 2.5rem;
-        }
-
-        /* Header */
-        .resume-header {
+        .screen-header {
+            max-width: 820px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
             text-align: center;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--border);
         }
-
-        .resume-header h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.4rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .resume-header .title {
-            font-size: 1.05rem;
-            color: var(--accent-secondary);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .resume-header .contact-line {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .resume-header .contact-line a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .resume-header .contact-line a:hover {
-            color: var(--accent);
-        }
-
-        .resume-header .contact-line .sep {
-            margin: 0 0.5rem;
-            color: var(--border);
-        }
-
-        /* Summary */
-        .summary {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            border-left: 3px solid var(--accent);
-        }
-
-        /* Sections */
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* Skills */
-        .skills-row {
-            margin-bottom: 1rem;
-        }
-
-        .skills-row .label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.3rem;
-        }
-
-        .skills-row .values {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .skills-row .values .highlight {
-            color: var(--accent-secondary);
-            font-weight: 500;
-        }
-
-        /* Experience entries */
-        .entry {
-            margin-bottom: 2rem;
-        }
-
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .entry-header h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-        }
-
-        .entry-header .date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--accent);
-            white-space: nowrap;
-        }
-
-        .entry .company {
-            font-size: 0.9rem;
-            color: var(--accent-secondary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .entry ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .entry ul li {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            padding-left: 1.2rem;
-            position: relative;
-            margin-bottom: 0.4rem;
-        }
-
-        .entry ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Education */
-        .edu-entry {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .edu-entry .degree {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .edu-entry .school {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .edu-entry .honors {
-            color: var(--accent-secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Back link */
-        .back-link {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .back-link a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .back-link a:hover { text-decoration: underline; }
 
         .pdf-btn {
             display: inline-block;
@@ -234,7 +43,6 @@
             border-radius: 6px;
             font-size: 0.82rem;
             font-weight: 600;
-            letter-spacing: 0.3px;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(124, 92, 252, 0.25);
         }
@@ -244,37 +52,228 @@
             box-shadow: 0 6px 20px rgba(124, 92, 252, 0.4);
         }
 
-        @media print {
-            .pdf-btn { display: none; }
+        .resume {
+            max-width: 820px;
+            margin: 1.5rem auto;
+            padding: 2rem 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
         }
 
-        /* Print styles */
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .resume-header h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.15rem;
+        }
+
+        .resume-header .title {
+            font-size: 0.82rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .resume-header .contact-line {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .resume-header .contact-line a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .resume-header .contact-line a:hover { color: var(--accent); }
+
+        .resume-header .sep { margin: 0 0.3rem; color: var(--border); }
+
+        /* Summary */
+        .summary {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 0.9rem;
+            line-height: 1.55;
+        }
+
+        /* Sections */
+        .section { margin-bottom: 0.9rem; }
+
+        .section-title {
+            font-size: 0.68rem;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Skills - compact inline */
+        .skills-row {
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.5;
+        }
+
+        .skills-row .label {
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .skills-row .values {
+            color: var(--text-muted);
+        }
+
+        .skills-row .highlight {
+            color: var(--accent-secondary);
+            font-weight: 600;
+        }
+
+        /* Experience entries */
+        .entry { margin-bottom: 0.7rem; }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .entry-header h3 {
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .entry-header .company {
+            color: var(--accent-secondary);
+            font-weight: 500;
+        }
+
+        .entry-header .date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .entry p, .entry ul {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .entry ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.15rem;
+        }
+
+        .entry ul li {
+            padding-left: 0.9rem;
+            position: relative;
+            margin-bottom: 0.1rem;
+        }
+
+        .entry ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Education */
+        .edu-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.85rem;
+        }
+
+        .edu-line .honors {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            font-size: 0.82rem;
+        }
+
+        .edu-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Back link */
+        .back-link {
+            max-width: 820px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.82rem;
+        }
+
+        .back-link a:hover { text-decoration: underline; }
+
+        /* Print */
         @media print {
-            body { background: white; color: #111; }
-            .resume { padding: 0; }
-            .resume-header h1 { background: none; -webkit-text-fill-color: #111; color: #111; }
+            body { background: white; color: #111; font-size: 10pt; line-height: 1.4; }
+            .screen-header, .back-link { display: none; }
+            .resume {
+                margin: 0; padding: 0.25in 0.35in;
+                background: white; border: none; border-radius: 0;
+                max-width: none;
+            }
+            .section { margin-bottom: 0.5rem; }
+            .entry { margin-bottom: 0.4rem; }
+            .summary { margin-bottom: 0.5rem; font-size: 0.78rem; }
+            .skills-row { font-size: 0.76rem; margin-bottom: 0.15rem; }
+            .entry p, .entry ul li { font-size: 0.76rem; }
+            .entry-header h3 { font-size: 0.82rem; }
+            .entry ul li { margin-bottom: 0; }
+            .resume-header h1 {
+                background: none; -webkit-text-fill-color: #111;
+                font-size: 1.5rem;
+            }
+            .resume-header { border-bottom-color: #333; }
             .resume-header .title { color: #333; }
             .resume-header .contact-line, .resume-header .contact-line a { color: #555; }
-            .section-title { color: #333; border-bottom-color: #ddd; }
-            .summary { background: #f8f8f8; border-color: #ddd; border-left-color: #333; color: #444; }
-            .entry-header .date { color: #555; }
-            .entry .company { color: #333; }
-            .entry ul li { color: #444; }
-            .entry ul li::before { color: #333; }
+            .section-title { color: #333; border-bottom-color: #ccc; }
+            .summary { color: #444; }
             .skills-row .values { color: #444; }
-            .skills-row .values .highlight { color: #111; font-weight: 600; }
-            .edu-entry .honors { color: #333; }
-            .back-link { display: none; }
+            .skills-row .highlight { color: #111; }
+            .entry-header .date { color: #555; }
+            .entry-header .company { color: #333; }
+            .entry p, .entry ul li { color: #444; }
+            .entry ul li::before { color: #333; }
+            .edu-line .honors { color: #333; }
+            .edu-sub { color: #555; }
             :root { --border: #ddd; }
         }
 
-        @media (max-width: 600px) {
-            .resume { padding: 2rem 1.5rem; }
-            .entry-header { flex-direction: column; }
-        }
+        @page { size: letter; margin: 0; }
     </style>
 </head>
 <body>
+    <div class="screen-header">
+        <a href="/Kristopher_Gates_Resume.pdf" download class="pdf-btn">⬇ Download PDF</a>
+    </div>
+
     <div class="resume">
         <header class="resume-header">
             <h1>Kristopher Gates</h1>
@@ -284,114 +283,67 @@
                 <span class="sep">·</span>
                 <a href="tel:+18134212341">(813) 421-2341</a>
                 <span class="sep">·</span>
-                <a href="https://www.kdlgates.com">kdlgates.com</a>
+                <a href="https://www.kdlgates.com">www.kdlgates.com</a>
                 <span class="sep">·</span>
                 <a href="https://github.com/KDLGates">github.com/KDLGates</a>
-            </div>
-            <div style="margin-top: 1rem;">
-                <a href="/Kristopher_Gates_Resume.pdf" download class="pdf-btn">⬇ Download PDF</a>
             </div>
         </header>
 
         <div class="summary">
-            10x AI engineer and versatile full-stack developer designing agentic workflows with Claude Code, OpenClaw, and Anthropic tools. Experienced in implementation, architecture, and systems automation across the full stack. Passionate about multiplying engineering output through AI-augmented development and best practices.
+            Versatile software engineer and 10x AI practitioner with experience in implementation, design, architecture, and full-stack development. Designing agentic workflows with Claude Code, OpenClaw, and Anthropic tools. Passionate about streamlining development through AI-augmented automation and best practices.
         </div>
 
         <div class="section">
             <div class="section-title">Skills</div>
-
-            <div class="skills-row">
-                <div class="label">AI &amp; Agentic Systems</div>
-                <div class="values">
-                    <span class="highlight">Claude Code</span>,
-                    <span class="highlight">OpenClaw</span>,
-                    <span class="highlight">Anthropic API &amp; MCP</span>,
-                    <span class="highlight">Agentic Workflow Design</span>,
-                    LLM Fine-Tuning, Prompt Engineering, PyTorch, OpenAI, DeepSeek
-                </div>
-            </div>
-
-            <div class="skills-row">
-                <div class="label">Languages</div>
-                <div class="values">Python, TypeScript, JavaScript, C#, Java, C, C++, SQL, Bash, HTML/CSS</div>
-            </div>
-
-            <div class="skills-row">
-                <div class="label">Frameworks &amp; Platforms</div>
-                <div class="values">.NET / Blazor, React, Vue, Angular, Node / Express, Flask, Flutter, MERN Stack, Microsoft Power Platform</div>
-            </div>
-
-            <div class="skills-row">
-                <div class="label">Infrastructure &amp; DevOps</div>
-                <div class="values">AWS, Microsoft Azure, GCP, Docker, Kubernetes, CI/CD, GitHub Actions, GitLab, Jenkins, Puppet, ServiceNow</div>
-            </div>
-
-            <div class="skills-row">
-                <div class="label">Operating Systems</div>
-                <div class="values">Windows (Active Directory / domain networking), Arch Linux, Android, cloud &amp; distributed</div>
-            </div>
-
-            <div class="skills-row">
-                <div class="label">Certifications</div>
-                <div class="values">AWS Certified DevOps Engineer (in progress), Linux Certified System Administrator (in progress)</div>
-            </div>
+            <div class="skills-row"><span class="label">AI &amp; Agentic: </span><span class="values"><span class="highlight">Claude Code</span>, <span class="highlight">OpenClaw</span>, <span class="highlight">Anthropic API / MCP</span>, <span class="highlight">Agentic Workflow Design</span>, Prompt Engineering, LLM Fine-Tuning, PyTorch, OpenAI, DeepSeek</span></div>
+            <div class="skills-row"><span class="label">Platforms: </span><span class="values">Web (HTML/CSS/JS frameworks), .NET, JavaScript, TypeScript, C#, Python, Java, C, C++</span></div>
+            <div class="skills-row"><span class="label">Tools: </span><span class="values">Cloud Infrastructure (AWS, Azure, GCP), React, Vue, Blazor, Angular, Power Platform, Kubernetes, Docker, Puppet, Jenkins, Node, Express, MERN Stack, Git, GitHub, NumPy, Flask, ServiceNow, Bash, Flutter, SQL, PostgreSQL</span></div>
+            <div class="skills-row"><span class="label">OS: </span><span class="values">Windows (AD / domain networking), Arch Linux, Android, cloud, distributed</span></div>
+            <div class="skills-row"><span class="label">Certs: </span><span class="values">AWS Certified DevOps Engineer (in progress), Linux Certified System Administrator (in progress)</span></div>
+            <div class="skills-row"><span class="label">Other: </span><span class="values">CRM, B2B, Agile, Scrum, CI/CD, SDLC, GitHub Actions, GitLab</span></div>
         </div>
 
         <div class="section">
-            <div class="section-title">Experience</div>
+            <div class="section-title">Work Experience</div>
 
             <div class="entry">
                 <div class="entry-header">
-                    <h3>AI Engineer &amp; Agentic Workflow Designer</h3>
+                    <h3>AI Engineer &amp; Agentic Workflow Designer, <span class="company">Independent</span></h3>
                     <div class="date">May 2025 — Present</div>
                 </div>
-                <div class="company">Independent</div>
                 <ul>
-                    <li>Designing and building autonomous AI agent architectures using Claude Code, OpenClaw, and Anthropic's tool ecosystem</li>
-                    <li>Developing MCP server integrations and multi-agent orchestration systems for complex, multi-step task execution</li>
-                    <li>Building AI-augmented development pipelines that multiply engineering output by 10x through intelligent automation</li>
-                    <li>Creating browser automation, code generation, and system administration workflows powered by agentic AI</li>
+                    <li>Designing autonomous AI agent architectures using Claude Code, OpenClaw, and Anthropic's tool ecosystem including MCP integrations and multi-agent orchestration</li>
+                    <li>Building AI-augmented development pipelines — browser automation, code generation, and system administration workflows that multiply engineering output by 10x</li>
                 </ul>
             </div>
 
             <div class="entry">
                 <div class="entry-header">
-                    <h3>.NET Full-Stack Developer</h3>
-                    <div class="date">April 2025</div>
+                    <h3>.NET Full-Stack Developer, <span class="company">Sightview Software</span></h3>
+                    <div class="date">Apr 2025</div>
                 </div>
-                <div class="company">Sightview Software</div>
                 <ul>
-                    <li>Extended and refactored MedTech products providing Electronic Health Record (EHR) and Practice Management solutions for vision care clinics</li>
-                    <li>Worked with .NET Platform, C#, Azure, Cosmos DB, and multiple stacks and toolchains</li>
-                    <li>Optimized design, solution, and delivery supporting vision health for opticians, optometrists, and ophthalmologists</li>
+                    <li>Extended and refactored MedTech products providing EHR and Practice Management solutions for vision care clinics. Worked with .NET, C#, Azure, Cosmos DB, and multiple stacks and toolchains. Optimized design, solution, and delivery.</li>
                 </ul>
             </div>
 
             <div class="entry">
                 <div class="entry-header">
-                    <h3>Software Engineer</h3>
-                    <div class="date">December 2017 — April 2025</div>
+                    <h3>Software Engineer, <span class="company">Cheaper Geek</span></h3>
+                    <div class="date">Dec 2017 — Apr 2025</div>
                 </div>
-                <div class="company">Cheaper Geek</div>
                 <ul>
-                    <li>Designed and implemented web apps, CMS platforms, and ecommerce solutions for small and medium businesses</li>
-                    <li>Developed enterprise portals, dashboards, and electronic health record systems with focus on UI/UX and workflow efficiency</li>
-                    <li>Led core rewrites of legacy projects that client businesses relied on, modernizing critical infrastructure</li>
-                    <li>Provided technology integration services as an independent contractor</li>
+                    <li>Designed and implemented web apps, CMS, and ecommerce solutions for SMBs. Developed enterprise portals, dashboards, and EHR systems for good UI/UX and efficient workflows. Led core rewrites of legacy projects, bringing them into modern efficiency. Provided technology integration as an independent contractor.</li>
                 </ul>
             </div>
 
             <div class="entry">
                 <div class="entry-header">
-                    <h3>Software Engineer</h3>
-                    <div class="date">June 2023 — July 2023</div>
+                    <h3>Software Engineer, <span class="company">Maya AI (Aza Project)</span></h3>
+                    <div class="date">Jun — Jul 2023</div>
                 </div>
-                <div class="company">Maya AI (Aza Project)</div>
                 <ul>
-                    <li>Managed version control with Git, including branching strategies and code review processes</li>
-                    <li>Containerized applications using Docker, hosted on AWS with ECS and EC2</li>
-                    <li>Designed front-end UI in React + Redux with Express server, routing, and original API endpoints</li>
-                    <li>Worked with React modules for camera integration and backend interfaces, matching Figma mockups as a full-stack Node developer</li>
+                    <li>Managed Git branching and code review. Containerized apps with Docker on AWS (ECS/EC2). Designed front-end in React + Redux with Express server and original API endpoints. Full-stack Node developer matching Figma mockups with camera and backend integration.</li>
                 </ul>
             </div>
         </div>
@@ -405,38 +357,33 @@
                     <div class="date">2025 — Present</div>
                 </div>
                 <ul>
-                    <li>Building autonomous agent systems integrating Claude Code with real-world tools: browser automation, code generation, system administration, and multi-agent orchestration</li>
-                    <li>Designing workflows where AI agents reason, act, and adapt across complex multi-step tasks with human oversight</li>
+                    <li>Building autonomous agent systems integrating Claude Code with real-world tools — browser automation, code generation, system administration, and multi-agent orchestration across complex multi-step tasks.</li>
                 </ul>
             </div>
 
             <div class="entry">
                 <div class="entry-header">
-                    <h3>LLaMA 3.2 Fine-Tune Model Training</h3>
+                    <h3>Local LLaMA 3.2 Datasetting and Fine-Tune Model Training</h3>
                     <div class="date">November 2024</div>
                 </div>
                 <ul>
-                    <li>Contracted as one of two developers in an end-to-end fine-tune of the LLaMA 3.2 foundation LLM to solve classic text adventure games</li>
-                    <li>Normalized and datasetted legacy gameplay transcripts, producing an AI system capable of gameplay and puzzle solving in text adventure and generalized environments</li>
+                    <li>Contracted as one of two developers in an end-to-end fine-tune of LLaMA 3.2 to solve classic text adventure games by normalizing and datasetting legacy gameplay transcripts, resulting in an AI capable of gameplay and puzzle solving.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
             <div class="section-title">Education</div>
-
-            <div class="edu-entry">
-                <div>
-                    <div class="degree">Bachelor of Science in Computer Science</div>
-                    <div class="school">University of South Florida — Tampa, FL</div>
-                </div>
-                <div class="honors">Summa Cum Laude (GPA 3.97)</div>
+            <div class="edu-line">
+                <span><strong>Bachelor of Science in Computer Science</strong></span>
+                <span class="honors">Summa Cum Laude (GPA 3.97)</span>
             </div>
+            <div class="edu-sub">University of South Florida — Tampa, FL</div>
         </div>
+    </div>
 
-        <div class="back-link">
-            <a href="/">← Back to kdlgates.com</a>
-        </div>
+    <div class="back-link">
+        <a href="/">← Back to kdlgates.com</a>
     </div>
 </body>
 </html>
