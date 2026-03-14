@@ -61,7 +61,7 @@
         }
 
         nav .inner {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -121,7 +121,7 @@
         section {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -301,7 +301,7 @@
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
 
@@ -329,6 +329,8 @@
             font-size: 0.82rem;
             font-weight: 500;
             transition: all 0.2s;
+            position: relative;
+            cursor: default;
         }
 
         .skill-tag:hover {
@@ -340,6 +342,62 @@
             background: rgba(0, 212, 170, 0.1);
             border-color: rgba(0, 212, 170, 0.3);
             color: var(--accent-secondary);
+        }
+
+        .skill-tag.highlight:hover {
+            background: rgba(0, 212, 170, 0.18);
+            border-color: var(--accent-secondary);
+        }
+
+        .skill-tag .tip {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: #1a1a28;
+            color: var(--text-muted);
+            font-size: 0.74rem;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: 0.7rem 0.9rem;
+            border-radius: 8px;
+            width: 260px;
+            white-space: normal;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            border: 1px solid rgba(124, 92, 252, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .skill-tag:hover .tip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .skill-tag .tip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(124, 92, 252, 0.2);
+        }
+
+        .skill-tag .tip a {
+            display: inline-block;
+            margin-top: 0.3rem;
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .skill-tag .tip a:hover {
+            text-decoration: underline;
         }
 
         /* Timeline */
@@ -446,7 +504,7 @@
         /* Contact */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 1rem;
         }
 
@@ -472,6 +530,7 @@
             font-size: 1.5rem;
             width: 48px;
             height: 48px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -489,18 +548,6 @@
         .contact-item .contact-value {
             font-weight: 600;
             font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
-            margin-top: 8rem;
         }
 
         /* Animations */
@@ -534,8 +581,9 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
+                <a href="#projects">What I've Built</a>
                 <a href="#contact">Contact</a>
+                <a href="/resume.html">Resume</a>
             </div>
         </div>
     </nav>
@@ -573,52 +621,52 @@
             <div class="skill-category">
                 <h3>AI &amp; Machine Learning</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag highlight">Claude Code</span>
-                    <span class="skill-tag highlight">OpenClaw</span>
-                    <span class="skill-tag highlight">Agentic Workflows</span>
-                    <span class="skill-tag highlight">Anthropic API</span>
-                    <span class="skill-tag">LLM Fine-Tuning</span>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">MCP Servers</span>
+                    <span class="skill-tag highlight">Claude Code<span class="tip">Anthropic's AI-powered CLI that turns natural language into autonomous coding sessions, running tools and editing files directly.<a href="https://claude.ai/code" target="_blank">claude.ai/code &rarr;</a></span></span>
+                    <span class="skill-tag highlight">OpenClaw<span class="tip">Open-source framework for building agentic AI systems that chain reasoning, tool use, and multi-step execution.<a href="https://github.com/anthropics/claude-code" target="_blank">github.com/anthropics &rarr;</a></span></span>
+                    <span class="skill-tag highlight">Agentic Workflows<span class="tip">Design patterns where AI agents autonomously plan, execute, and iterate on multi-step tasks with real-world tool access.</span></span>
+                    <span class="skill-tag highlight">Anthropic API<span class="tip">REST API for accessing Claude models with support for tool use, vision, and extended thinking.<a href="https://docs.anthropic.com" target="_blank">docs.anthropic.com &rarr;</a></span></span>
+                    <span class="skill-tag">LLM Fine-Tuning<span class="tip">Adapting pre-trained language models on domain-specific datasets to improve accuracy for specialized tasks.</span></span>
+                    <span class="skill-tag">PyTorch<span class="tip">Meta's open-source deep learning framework for building and training neural networks with dynamic computation graphs.<a href="https://pytorch.org" target="_blank">pytorch.org &rarr;</a></span></span>
+                    <span class="skill-tag">Prompt Engineering<span class="tip">Crafting structured instructions and system prompts that guide LLMs toward reliable, high-quality outputs.</span></span>
+                    <span class="skill-tag">MCP Servers<span class="tip">Model Context Protocol servers that let AI agents connect to external tools, APIs, and data sources through a standard interface.<a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io &rarr;</a></span></span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Languages</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">C#</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">C / C++</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Python<span class="tip">Versatile language for AI/ML pipelines, backend services, scripting, and data processing.<a href="https://python.org" target="_blank">python.org &rarr;</a></span></span>
+                    <span class="skill-tag">TypeScript<span class="tip">Typed superset of JavaScript that catches errors at compile time, essential for large-scale frontend and backend projects.<a href="https://typescriptlang.org" target="_blank">typescriptlang.org &rarr;</a></span></span>
+                    <span class="skill-tag">JavaScript<span class="tip">The language of the web — used for interactive frontends, Node.js backends, and full-stack development.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs &rarr;</a></span></span>
+                    <span class="skill-tag">C#<span class="tip">Microsoft's object-oriented language powering .NET, Blazor, and enterprise application development.<a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">learn.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">Java<span class="tip">Battle-tested language for enterprise backends, Android apps, and high-performance distributed systems.<a href="https://dev.java" target="_blank">dev.java &rarr;</a></span></span>
+                    <span class="skill-tag">C / C++<span class="tip">Systems-level languages for performance-critical code, embedded systems, and low-level programming.</span></span>
+                    <span class="skill-tag">SQL<span class="tip">Standard language for relational databases — querying, modeling, and managing structured data.</span></span>
+                    <span class="skill-tag">Bash<span class="tip">Unix shell scripting for automation, DevOps pipelines, and system administration tasks.</span></span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Frameworks &amp; Tools</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Vue</span>
-                    <span class="skill-tag">Angular</span>
-                    <span class="skill-tag">.NET / Blazor</span>
-                    <span class="skill-tag">Node / Express</span>
-                    <span class="skill-tag">Flask</span>
-                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">React<span class="tip">Component-based UI library with hooks, state management, and a massive ecosystem for building interactive frontends.<a href="https://react.dev" target="_blank">react.dev &rarr;</a></span></span>
+                    <span class="skill-tag">Vue<span class="tip">Progressive JavaScript framework with reactive data binding and a gentle learning curve for building modern UIs.<a href="https://vuejs.org" target="_blank">vuejs.org &rarr;</a></span></span>
+                    <span class="skill-tag">Angular<span class="tip">Google's full-featured framework for enterprise single-page applications with TypeScript, DI, and RxJS built in.<a href="https://angular.dev" target="_blank">angular.dev &rarr;</a></span></span>
+                    <span class="skill-tag">.NET / Blazor<span class="tip">Microsoft's framework for building server-side and interactive web UIs with C# instead of JavaScript.<a href="https://dotnet.microsoft.com" target="_blank">dotnet.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">Node / Express<span class="tip">JavaScript runtime paired with a minimal web framework for building REST APIs and backend services.<a href="https://expressjs.com" target="_blank">expressjs.com &rarr;</a></span></span>
+                    <span class="skill-tag">Flask<span class="tip">Lightweight Python micro-framework for web apps and APIs, easy to extend with a rich plugin ecosystem.<a href="https://flask.palletsprojects.com" target="_blank">flask.palletsprojects.com &rarr;</a></span></span>
+                    <span class="skill-tag">Flutter<span class="tip">Google's UI toolkit for building natively compiled mobile, web, and desktop apps from a single Dart codebase.<a href="https://flutter.dev" target="_blank">flutter.dev &rarr;</a></span></span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Infrastructure &amp; DevOps</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">GCP</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Kubernetes</span>
-                    <span class="skill-tag">CI/CD</span>
-                    <span class="skill-tag">GitHub Actions</span>
-                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">AWS<span class="tip">Amazon's cloud platform — used for compute (EC2/ECS), storage, serverless, and full-stack infrastructure.<a href="https://aws.amazon.com" target="_blank">aws.amazon.com &rarr;</a></span></span>
+                    <span class="skill-tag">Azure<span class="tip">Microsoft's cloud platform for enterprise services, .NET hosting, Cosmos DB, and Active Directory integration.<a href="https://azure.microsoft.com" target="_blank">azure.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">GCP<span class="tip">Google Cloud Platform for compute, AI/ML services, BigQuery, and Kubernetes Engine.<a href="https://cloud.google.com" target="_blank">cloud.google.com &rarr;</a></span></span>
+                    <span class="skill-tag">Docker<span class="tip">Containerization platform for packaging apps into portable, reproducible environments across dev and production.<a href="https://docker.com" target="_blank">docker.com &rarr;</a></span></span>
+                    <span class="skill-tag">Kubernetes<span class="tip">Container orchestration system for automating deployment, scaling, and management of containerized workloads.<a href="https://kubernetes.io" target="_blank">kubernetes.io &rarr;</a></span></span>
+                    <span class="skill-tag">CI/CD<span class="tip">Automated pipelines that build, test, and deploy code on every commit, ensuring fast and reliable releases.</span></span>
+                    <span class="skill-tag">GitHub Actions<span class="tip">Workflow automation built into GitHub for CI/CD, testing, deployments, and custom repo automations.<a href="https://github.com/features/actions" target="_blank">github.com/features/actions &rarr;</a></span></span>
+                    <span class="skill-tag">Jenkins<span class="tip">Open-source automation server for building, testing, and deploying software with extensible plugin support.<a href="https://jenkins.io" target="_blank">jenkins.io &rarr;</a></span></span>
                 </div>
             </div>
         </div>
@@ -673,7 +721,7 @@
 
     <section id="projects">
         <div class="section-head">
-            <div class="tag">Projects</div>
+            <div class="tag">What I've Built</div>
             <h2>What I've Built</h2>
         </div>
 
@@ -685,12 +733,12 @@
                 can reason, act, and learn across complex multi-step tasks.
             </p>
             <div class="tech-stack">
-                <span class="skill-tag highlight">Claude Code</span>
-                <span class="skill-tag highlight">OpenClaw</span>
-                <span class="skill-tag highlight">Anthropic API</span>
-                <span class="skill-tag">MCP</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">Python</span>
+                <span class="skill-tag highlight">Claude Code<span class="tip">Anthropic's AI-powered CLI that turns natural language into autonomous coding sessions, running tools and editing files directly.<a href="https://claude.ai/code" target="_blank">claude.ai/code &rarr;</a></span></span>
+                <span class="skill-tag highlight">OpenClaw<span class="tip">Open-source framework for building agentic AI systems that chain reasoning, tool use, and multi-step execution.<a href="https://github.com/anthropics/claude-code" target="_blank">github.com/anthropics &rarr;</a></span></span>
+                <span class="skill-tag highlight">Anthropic API<span class="tip">REST API for accessing Claude models with support for tool use, vision, and extended thinking.<a href="https://docs.anthropic.com" target="_blank">docs.anthropic.com &rarr;</a></span></span>
+                <span class="skill-tag">MCP Servers<span class="tip">Model Context Protocol servers that let AI agents connect to external tools, APIs, and data sources through a standard interface.<a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io &rarr;</a></span></span>
+                <span class="skill-tag">TypeScript<span class="tip">Typed superset of JavaScript that catches errors at compile time, essential for large-scale frontend and backend projects.<a href="https://typescriptlang.org" target="_blank">typescriptlang.org &rarr;</a></span></span>
+                <span class="skill-tag">Python<span class="tip">Versatile language for AI/ML pipelines, backend services, scripting, and data processing.<a href="https://python.org" target="_blank">python.org &rarr;</a></span></span>
             </div>
         </div>
 
@@ -704,6 +752,12 @@
                     Normalized and datasetted legacy gameplay transcripts, producing an AI capable
                     of gameplay and puzzle solving in text adventure environments.
                 </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">PyTorch<span class="tip">Meta's open-source deep learning framework for building and training neural networks with dynamic computation graphs.<a href="https://pytorch.org" target="_blank">pytorch.org &rarr;</a></span></span>
+                    <span class="skill-tag">Python<span class="tip">Versatile language for AI/ML pipelines, backend services, scripting, and data processing.<a href="https://python.org" target="_blank">python.org &rarr;</a></span></span>
+                    <span class="skill-tag">LLM Fine-Tuning<span class="tip">Adapting pre-trained language models on domain-specific datasets to improve accuracy for specialized tasks.</span></span>
+                    <span class="skill-tag">Prompt Engineering<span class="tip">Crafting structured instructions and system prompts that guide LLMs toward reliable, high-quality outputs.</span></span>
+                </div>
             </div>
             <div class="card">
                 <div class="icon">🏥</div>
@@ -713,6 +767,11 @@
                     Electronic Health Record and Practice Management solutions for vision care clinics.
                     Built on .NET, Azure, and Cosmos DB for opticians, optometrists, and ophthalmologists.
                 </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">C#<span class="tip">Microsoft's object-oriented language powering .NET, Blazor, and enterprise application development.<a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">learn.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">.NET / Blazor<span class="tip">Microsoft's framework for building server-side and interactive web UIs with C# instead of JavaScript.<a href="https://dotnet.microsoft.com" target="_blank">dotnet.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">Azure<span class="tip">Microsoft's cloud platform for enterprise services, .NET hosting, Cosmos DB, and Active Directory integration.<a href="https://azure.microsoft.com" target="_blank">azure.microsoft.com &rarr;</a></span></span>
+                </div>
             </div>
             <div class="card">
                 <div class="icon">🔧</div>
@@ -722,6 +781,66 @@
                     Led core rewrites of legacy projects that businesses depended on,
                     bringing them into modern efficiency with updated stacks and architecture.
                 </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">React<span class="tip">Component-based UI library with hooks, state management, and a massive ecosystem for building interactive frontends.<a href="https://react.dev" target="_blank">react.dev &rarr;</a></span></span>
+                    <span class="skill-tag">JavaScript<span class="tip">The language of the web — used for interactive frontends, Node.js backends, and full-stack development.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs &rarr;</a></span></span>
+                    <span class="skill-tag">Node / Express<span class="tip">JavaScript runtime paired with a minimal web framework for building REST APIs and backend services.<a href="https://expressjs.com" target="_blank">expressjs.com &rarr;</a></span></span>
+                    <span class="skill-tag">SQL<span class="tip">Standard language for relational databases — querying, modeling, and managing structured data.</span></span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">🍷</div>
+                <h3>Real Wines</h3>
+                <div class="meta"><a href="https://github.com/KDLGates/realwines" target="_blank" style="color: var(--accent);">github.com/KDLGates/realwines</a></div>
+                <p>
+                    Database-backed management application for a wine business. Full CRUD operations
+                    with inventory tracking, built as an MVP demonstrating .NET and data-driven design.
+                </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">C#<span class="tip">Microsoft's object-oriented language powering .NET, Blazor, and enterprise application development.<a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">learn.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">.NET / Blazor<span class="tip">Microsoft's framework for building server-side and interactive web UIs with C# instead of JavaScript.<a href="https://dotnet.microsoft.com" target="_blank">dotnet.microsoft.com &rarr;</a></span></span>
+                    <span class="skill-tag">SQL<span class="tip">Standard language for relational databases — querying, modeling, and managing structured data.</span></span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">🌱</div>
+                <h3>SeedMart</h3>
+                <div class="meta"><a href="https://github.com/KDLGates/seedmart" target="_blank" style="color: var(--accent);">github.com/KDLGates/seedmart</a></div>
+                <p>
+                    Full-stack seed trading platform with a market visualization dashboard
+                    and seed management system. Interactive charts and real-time data display.
+                </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">JavaScript<span class="tip">The language of the web — used for interactive frontends, Node.js backends, and full-stack development.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs &rarr;</a></span></span>
+                    <span class="skill-tag">HTML / CSS<span class="tip">The foundational markup and styling languages for building and designing web pages.</span></span>
+                    <span class="skill-tag">Data Visualization<span class="tip">Rendering complex datasets as interactive charts and dashboards for insight and exploration.</span></span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">✨</div>
+                <h3>Particle Background</h3>
+                <div class="meta"><a href="https://github.com/KDLGates/particle-background" target="_blank" style="color: var(--accent);">github.com/KDLGates/particle-background</a></div>
+                <p>
+                    JavaScript library for animated particle backgrounds with configurable density,
+                    speed, and connection lines. Lightweight creative coding for web visuals.
+                </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">JavaScript<span class="tip">The language of the web — used for interactive frontends, Node.js backends, and full-stack development.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs &rarr;</a></span></span>
+                    <span class="skill-tag">Canvas API<span class="tip">Browser API for drawing 2D graphics, animations, and visual effects directly on web pages.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">MDN Canvas API &rarr;</a></span></span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">📡</div>
+                <h3>PingClient</h3>
+                <div class="meta"><a href="https://github.com/KDLGates/PingClient" target="_blank" style="color: var(--accent);">github.com/KDLGates/PingClient</a></div>
+                <p>
+                    Network ping client built with Java sockets. Demonstrates low-level networking,
+                    packet construction, and round-trip time measurement.
+                </p>
+                <div class="skill-tags" style="margin-top: 0.75rem;">
+                    <span class="skill-tag">Java<span class="tip">Enterprise-grade object-oriented language running on the JVM, widely used for backend services and Android development.<a href="https://dev.java" target="_blank">dev.java &rarr;</a></span></span>
+                    <span class="skill-tag">Networking<span class="tip">Socket programming, protocol design, and understanding of TCP/IP, UDP, and HTTP fundamentals.</span></span>
+                </div>
             </div>
         </div>
     </section>
@@ -731,10 +850,60 @@
             <div class="tag">Education</div>
             <h2>Academic Background</h2>
         </div>
-        <div class="card" style="max-width: 600px;">
+        <div class="card" style="max-width: 900px;">
             <h3>B.S. in Computer Science</h3>
-            <div class="meta">University of South Florida — Tampa, FL</div>
-            <p><strong style="color: var(--accent-secondary);">Summa Cum Laude</strong> — GPA 3.97</p>
+            <div class="meta">University of South Florida — Tampa, FL · 2013 – 2017</div>
+            <p><strong style="color: var(--accent-secondary);">Summa Cum Laude</strong> — GPA 3.91</p>
+
+            <div style="margin-top: 1rem;">
+                <h4 style="font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Core CS Coursework</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+                    <span class="skill-tag" style="font-size: 0.7rem;">Data Structures</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Analysis of Algorithms</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Operating Systems</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Computer Networks</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Database Design</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Object Oriented Design</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Software Engineering</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Automata &amp; Formal Languages</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Intro to Discrete Structures</span>
+                </div>
+
+                <h4 style="font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Systems &amp; Architecture</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+                    <span class="skill-tag" style="font-size: 0.7rem;">Computer Organization</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Computer Architecture</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Computer Logic Design</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Massively Parallel Systems</span>
+                </div>
+
+                <h4 style="font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Security &amp; Applied CS</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+                    <span class="skill-tag" style="font-size: 0.7rem;">Practical Cybersecurity</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Systems Security</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Web Application Design</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Advanced Python</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Ethical Issues &amp; Professional Conduct</span>
+                </div>
+
+                <h4 style="font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Math &amp; Science</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+                    <span class="skill-tag" style="font-size: 0.7rem;">Engineering Calculus I–III</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Probability &amp; Stats for Engineers</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Intro to Linear Systems</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">General Physics I &amp; II</span>
+                </div>
+
+                <h4 style="font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Honors &amp; Electives</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                    <span class="skill-tag" style="font-size: 0.7rem;">Beginning Latin I &amp; II</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Arts &amp; Humanities Honors</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Social &amp; Behavioral Science Honors</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Seminar in Applied Ethics</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Intro to World Religions</span>
+                    <span class="skill-tag" style="font-size: 0.7rem;">Intro to Electronic Music</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -759,10 +928,17 @@
                 </div>
             </a>
             <a href="https://github.com/KDLGates" target="_blank" class="contact-item">
-                <div class="contact-icon">⚡</div>
+                <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></div>
                 <div>
                     <div class="contact-label">GitHub</div>
                     <div class="contact-value">github.com/KDLGates</div>
+                </div>
+            </a>
+            <a href="https://linkedin.com/in/kdlgates" target="_blank" class="contact-item">
+                <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                <div>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">linkedin.com/in/kdlgates</div>
                 </div>
             </a>
             <a href="https://www.kdlgates.com" target="_blank" class="contact-item">
@@ -774,9 +950,5 @@
             </a>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2025 Kristopher Gates. Built with purpose.</p>
-    </footer>
 </body>
 </html>
